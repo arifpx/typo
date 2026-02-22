@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="News24 Banglish Editor - Professional typing tool with AI-powered suggestions">
+    <title>News24</title>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <div class="app-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <!-- Close Button (Mobile Only) -->
+            <button class="sidebar-close-btn" onclick="toggleSidebar()" title="Close Sidebar">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="sidebar-top">
+                <div class="new-chat-container">
+                    <button class="new-chat-btn" onclick="storageManager.createNote()">
+                        <i class="fas fa-plus"></i>
+                        <span class="btn-text">New Note</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="sidebar-mid">
+                <div class="section-title">Recent</div>
+                <div class="history-list" id="historyList">
+                    <!-- History items -->
+                </div>
+            </div>
+
+            <div class="sidebar-bottom">
+                <!-- Bottom items removed -->
+            </div>
+        </aside>
+
+        <!-- Backdrop Overlay (Mobile Only) -->
+        <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+        <!-- Main Content -->
+        <main class="main-container">
+            <!-- Sticky Header for Toggle Buttons -->
+            <div class="sticky-header">
+                <!-- Floating Menu Button (Top Left) -->
+                <button class="menu-btn floating-menu" onclick="toggleSidebar()" title="Toggle Sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Theme Toggle (Top Right) -->
+                <button class="menu-btn theme-toggle-top" onclick="toggleTheme()" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+
+            <div class="content-wrapper">
+                <!-- Welcome Message (Visible when empty) -->
+                <div class="welcome-container" id="welcomeMsg">
+                    <h1 class="greeting-text">
+                        <span class="gradient-text">Hello, Editor</span>
+                    </h1>
+                    <p class="sub-text">I'm ready to help you plan, study, bring ideas to life & more.</p>
+                </div>
+
+                <div class="editor-area">
+                    <div class="editor-box">
+                        <textarea id="editor" placeholder="type anything" spellcheck="false"
+                            aria-label="Text Editor"></textarea>
+
+                        <div class="input-actions-floating">
+                            <button class="action-btn-circle" id="searchBtn" onclick="googleSearch()"
+                                title="Search with Google">
+                                <i class="fab fa-google"></i>
+                            </button>
+                            <button class="action-btn-circle" id="voiceBtn" onclick="toggleVoice()"
+                                title="Voice Input (Ctrl + ~)">
+                                <i class="fas fa-microphone"></i>
+                            </button>
+                            <button class="action-btn-circle" id="langBtnInput" onclick="toggleLang()"
+                                title="Switch Language (Ctrl + ,)">
+                                <span class="btn-text-icon">BN</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chips Removed -->
+
+                <footer class="legal-footer">
+                    Developed by <a href="https://www.facebook.com/113arif" target="_blank"
+                        rel="noopener noreferrer">Mortuz</a> ©2026 News24
+                </footer>
+            </div>
+
+            <!-- Suggestion Box (Hidden) -->
+            <div id="suggestion-box" class="suggestion-box" role="listbox"></div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>
